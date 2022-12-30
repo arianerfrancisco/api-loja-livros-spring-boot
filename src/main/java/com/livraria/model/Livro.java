@@ -12,7 +12,6 @@ public class Livro {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @JsonProperty("_id")
-    @JsonIgnore  // ignora o envio para o response json
     private Long id;
 
     @Column(length = 200, nullable = false) // não aceitará valores nulos

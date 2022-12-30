@@ -10,22 +10,22 @@ import org.springframework.context.annotation.Bean;
 @SpringBootApplication
 public class CrudSpringApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(CrudSpringApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(CrudSpringApplication.class, args);
+    }
 
-		@Bean
-		CommandLineRunner initDatabase(LivroRepository livroRepository) {
-			return args -> {
-				livroRepository.deleteAll();
+    @Bean
+    CommandLineRunner initDatabase(LivroRepository livroRepository) {
+        return args -> {
+            livroRepository.deleteAll();
 
-				Livro c = new Livro();
-				c.setNome("Angular com Spring");
-				c.setAutor("Front-end");
-				livroRepository.save(c);
+            Livro c = new Livro();
+            c.setNome("Angular com Spring");
+            c.setAutor("Front-end");
+            livroRepository.save(c);
 
-			};
-		}
-	}
+        };
+    }
+}
 
 
