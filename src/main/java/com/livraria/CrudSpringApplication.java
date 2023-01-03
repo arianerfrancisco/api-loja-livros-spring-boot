@@ -20,8 +20,8 @@ public class CrudSpringApplication {
             livroRepository.deleteAll();
 
             Livro c = new Livro();
-            c.setNome("Angular com Spring");
-            c.setAutor("Front-end");
+            c.setNome("Autor 1");
+            c.setAutor("Autor 2");
             livroRepository.save(c);
 
         };
