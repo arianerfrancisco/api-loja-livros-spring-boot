@@ -21,7 +21,7 @@ public class CrudSpringApplication {
 
             Livro c = new Livro();
             c.setNome("Autor 1");
-            c.setAutor("Autor 2");
+            c.setAutor("autor2");
             livroRepository.save(c);
 
         };
