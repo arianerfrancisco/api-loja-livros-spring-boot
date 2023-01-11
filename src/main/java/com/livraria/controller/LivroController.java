@@ -23,6 +23,7 @@ class LivroController {
     private final LivroRepository livroRepository;
 
     @GetMapping
+    //@CrossOrigin - liberar individualmente
     public List<Livro> list() {
         return livroRepository.findAll();
     }
