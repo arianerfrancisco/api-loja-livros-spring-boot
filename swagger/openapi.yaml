@@ -1,0 +1,115 @@
+openapi: 3.0.0
+info:
+  title: API de livros
+  description: API para controlar um repositório de livros.
+  version: 0.0.1
+  termsOfService: https://github.com/arianerfrancisco/api-loja-livros-spring-boot
+  contact:
+    name: Suporte a Devs
+    email: arianerocha4@hotmail.com
+    url: https://github.com/arianerfrancisco/api-loja-livros-spring-boot
+  license:
+    name: "Lincença: GPLv3"
+    url: https://www.gnu.org/licenses/gpl-3.0.html
+externalDocs:
+  description: Documentação burocrática
+  url: https://mockapi.io
+servers:
+- url: http://localhost:8080
+  description: API de Teste
+paths:
+  /api/livros:
+    get:
+      summary: Recupera todos os livros
+      responses:
+        200:
+          description: Sucesso
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Livros"
+    post:
+      summary: Cria um novo livro
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Livro"
+      responses:
+        201:
+          description: Sucesso
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Livro"
+  /api/livros/{id}:
+    parameters:
+    - name: id
+      in: path
+      schema:
+        type: integer
+      required: true
+    get:
+      summary: Recupera um livro pelo ID
+      responses:
+        200:
+          description: Sucesso
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Livro"
+        404:
+          description: Livro não encontrado
+          content:
+            application/json:
+              example: "Not Found"
+    delete:
+      summary: Deleta um livro pelo ID
+      responses:
+        204:
+          description: Livro deletado
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Livro"
+        404:
+          description: Livro não encontrado
+          content:
+            application/json:
+              example: "Not Found"
+    put:
+      summary: Edita um livro
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Livro"
+      responses:
+        201:
+          description: "Sucesso ao editar livro"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Livro"
+        404:
+          description: Livro não encontrado
+          content:
+            application/json:
+              example: "Not Found"
+components:
+  schemas:
+    Livro:
+      type: object
+      properties:
+        nome:
+          type: string
+        autor:
+          type: string
+    Livros:
+      type: array
+      items:
+        $ref: "#/components/schemas/Livro"
+
+ 
+ 
+   
