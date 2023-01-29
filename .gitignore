@@ -3,7 +3,8 @@ target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
-.mysql-data/db/mysql.sock
+database-docker/.mysql-data
+database-docker/mysql-data
 ### STS ###
 .apt_generated
 .classpath
