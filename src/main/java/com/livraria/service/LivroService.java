@@ -15,7 +15,6 @@ import java.util.Optional;
 
 @Service
 @Validated
-//teste
 public class LivroService {
     private final LivroRepository livroRepository;
 
