@@ -12,7 +12,7 @@ import org.hibernate.validator.constraints.Length;
 
 @Data
 @Entity
-@SQLDelete(sql="UPDATE Livro SET status='inativo' WHERE id=?")
+@SQLDelete(sql = "UPDATE Livro SET status='inativo' WHERE id=?")
 @Where(clause = "status='ativo'")
 public class Livro {
 
@@ -23,20 +23,25 @@ public class Livro {
 
     @NotBlank
     @NotNull
-    @Length(min=5,max=100)
+    @Length(min = 5, max = 100)
     @Column(length = 200, nullable = false) // não aceitará valores nulos
     private String nome;
+    @NotNull
+    @Length(max = 100)
+    @Column(length = 100, nullable = false)
+    //@Pattern(regexp = "autor1|autor2")
+    private String autor;
 
     @NotNull
-    @Length(max=100)
+    @Length(max = 100)
     @Column(length = 100, nullable = false)
-    @Pattern(regexp = "autor1|autor2")
-    private String autor;
+    //@Pattern(regexp = "suspense|drama|romance")
+    private String genero;
 
     //@JsonIgnore
     @NotNull
-    @Length(max=10)
+    @Length(max = 10)
     @Column(length = 10, nullable = false)
     @Pattern(regexp = "ativo|inativo")
-    private String status="ativo";
+    private String status = "ativo";
 }
